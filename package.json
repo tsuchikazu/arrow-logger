@@ -1,7 +1,7 @@
 {
-  "name": "es6-boilerplate",
+  "name": "arrow-logger",
   "version": "0.0.1",
-  "description": "Boilerplate for authoring in ES6 and publishing in ES5.",
+  "description": "arrow-logger is node development helper tools. Output execution result in arrow comment(`// =>`). arrow-logger like ruby xmpfilter command in rcodetools gem.",
   "main": "lib/index.js",
   "files": [
     "lib"
@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com/tsuchikazu/es6-boilerplate.git"
+    "url": "ssh://git@github.com/tsuchikazu/arrow-logger.git"
   },
   "keywords": [],
   "author": "tsuchikazu <huneyhunt77@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tsuchikazu/es6-boilerplate/issues"
+    "url": "https://github.com/tsuchikazu/arrow-logger/issues"
   },
-  "homepage": "https://github.com/tsuchikazu/es6-boilerplate",
+  "homepage": "https://github.com/tsuchikazu/arrow-logger",
   "devDependencies": {
     "babel": "^5.8.23",
     "babel-eslint": "^4.1.3",
