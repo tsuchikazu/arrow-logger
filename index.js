@@ -6,7 +6,7 @@ var code = here(/*
 var string = 'abc';
 string.charAt(1); // =>
 string.concat('def'); // =>
-*/).unindent();
+*/);
 
 var espree = require('espree')
 var originalAst = espree.parse(code, {comments: true, attachComment: true})
