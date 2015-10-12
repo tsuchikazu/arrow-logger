@@ -6,13 +6,20 @@ var code = here(/*
 var string = 'abc';
 string.charAt(1); // =>
 string.concat('def'); // =>
-string.slice(0,1); // =>
 */).unindent();
 
 var espree = require('espree')
 var originalAst = espree.parse(code, {comments: true, attachComment: true})
 
 var estraverse = require('estraverse')
+estraverse.replace(originalAst, {
+  enter: function (node) {
+    if (node.leadingComments) {
+      node.leadingComments = []
+    }
+    return node;
+  }
+})
 
 console.log('-----------before--------------------')
 var output = escodegen.generate(originalAst, {comment: true});
