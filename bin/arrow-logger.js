@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 var program = require('commander');
 var arrowLogger = require('../lib/arrow-logger');
+var fs = require('fs');
 
 program
   .version(require('../package.json').version)
@@ -13,4 +14,8 @@ if (!program.args.length) {
   process.exit(0);
 }
 
-arrowLogger.run(program);
+arrowLogger
+  .run(fs.readFileSync(program.args[0], 'utf-8'), program)
+  .then(function(result) {
+    console.log(result);
+  });
