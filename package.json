@@ -1,6 +1,6 @@
 {
   "name": "arrow-logger",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "arrow-logger is node development helper tools. Output execution result in arrow comment(`// =>`). arrow-logger like ruby xmpfilter command in rcodetools gem.",
   "main": "lib/index.js",
   "bin": {
