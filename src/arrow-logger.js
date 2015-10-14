@@ -5,7 +5,7 @@ import clone from 'clone';
 import child_process from 'child_process';
 import tmp from 'tmp';
 import fs from 'fs';
-import "babel/polyfill";
+import { Promise } from "es6-promise";
 
 const arrowLogger = {
   parse(code) {

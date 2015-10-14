@@ -41,6 +41,7 @@
   "dependencies": {
     "clone": "^1.0.2",
     "commander": "^2.8.1",
+    "es6-promise": "^3.0.2",
     "escodegen": "^1.7.0",
     "espree": "^2.2.5",
     "estraverse": "^4.1.0",
