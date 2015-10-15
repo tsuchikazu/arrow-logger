@@ -6,6 +6,7 @@ import child_process from 'child_process';
 import tmp from 'tmp';
 import fs from 'fs';
 import { Promise } from "es6-promise";
+import util from 'util';
 
 const arrowLogger = {
   parse(code) {
@@ -122,7 +123,7 @@ const arrowLogger = {
       childProcess.on("message", (msg) => {
         originalAst.comments.forEach( (comment) => {
           if (comment.range[0] === msg.commentRange[0] && comment.range[1] === msg.commentRange[1]) {
-            comment.value += " " + msg.result
+            comment.value += " " + util.inspect(msg.result, {showHidden: false, depth: null})
           }
         });
       });
