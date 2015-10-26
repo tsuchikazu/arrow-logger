@@ -118,6 +118,10 @@ const arrowLogger = {
     const originalAst = this.parse(originalCode);
     const markedAst = this.mark(originalAst);
 
+    originalAst.comments.forEach( (comment) => {
+      const log = comment.value.match(/=>(.*)/)[1];
+      comment.value = comment.value.replace(log,  '');
+    });
     return new Promise( (resolve) => {
       const childProcess = this.invoke(this.toCode(markedAst))
       childProcess.on("message", (msg) => {

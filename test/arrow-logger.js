@@ -4,6 +4,21 @@ import arrowLogger from '../src/arrow-logger';
 
 describe('arrowLogger', () => {
   describe('#run', () => {
+    it('should reset log', (done) => {
+      const code = [
+        "var string = 'abc';",
+        "string;    // aaa => 'abc'"
+      ];
+      arrowLogger.run(code.join('\n')).then( (result) => {
+        const expect = [
+          "var string = 'abc';",
+          "string;    // aaa => 'abc'",
+          ""
+        ];
+        assert.equal(result, expect.join('\n'));
+        done();
+      }).catch(done);
+    });
     context('when commented on ExpressionStatement', () => {
       it('should log string', (done) => {
         const code = [
