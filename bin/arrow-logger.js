@@ -9,13 +9,29 @@ program
   .option('-c,  --config <path>',  'set configurations')
   .parse(process.argv);
 
-if (!program.args.length) {
-  program.help();
-  process.exit(0);
+var stream;
+if (process.stdin.isTTY) {
+  if (program.args.length === 0) {
+    program.help();
+    process.exit(0);
+  }
+  stream = fs.createReadStream(program.args[0]);
+} else {
+  if (program.args.length !== 0) {
+    program.help();
+    process.exit(0);
+  }
+  stream = process.stdin;
 }
 
-arrowLogger
-  .run(fs.readFileSync(program.args[0], 'utf-8'), program)
-  .then(function(result) {
-    console.log(result);
-  });
+var data = '';
+stream.on('data', function(buf) {
+  data += buf;
+});
+stream.on('end', function() {
+  arrowLogger
+    .run(data, program)
+    .then(function(result) {
+      console.log(result);
+    });
+});
