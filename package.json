@@ -15,7 +15,8 @@
     "watch": "babel src --out-dir lib --watch",
     "test": "mocha --compilers js:espower-babel/guess test/*.js",
     "test-watch": "mocha --watch --compilers js:espower-babel/guess test/*.js",
-    "lint": "eslint src test"
+    "lint": "eslint src test",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
